@@ -1,8 +1,18 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 )
+
+// DEALING WITH INPUTS
+func createBill() {
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Create a new bill name: ")
+	name, _ := reader.ReadString('\n')
+}
 
 // DEALING WITH FUNCTIONS
 
@@ -40,11 +50,11 @@ import (
 // 	return initials[0], "_"
 // }
 
-func updateName(x string) string {
-	x = "Monday"
+// func updateName(x string) string {
+// 	x = "Monday"
 
-	return x
-}
+// 	return x
+// }
 
 // func updateMenu(y map[string]float64) {
 // 	y["ice"] = 15000
@@ -53,10 +63,10 @@ func updateName(x string) string {
 func main() {
 
 	// Group A Types --- Strings, Ints, Floats, Bool, Arrays, Structs
-	name := "Tifa"
+	// name := "Tifa"
 
-	name = updateName(name)
-	fmt.Println("memory address for name is:", &name)
+	// name = updateName(name)
+	// fmt.Println("memory address for name is:", &name)
 
 	// Group B Types --- Maps, Slices, Functions
 
@@ -270,5 +280,21 @@ func main() {
 	// }
 	// fmt.Println(phonebook)
 	// fmt.Println(phonebook[1234567])
+
+
+	// STRUCTS
+
+	myBill := newBill("Covenant's Bill")
+
+	myBill.updateTip(10)
+	myBill.addItem("Afang soup", 31.99)
+	myBill.addItem("Editan soup", 31.99)
+
+	myBill.addItem("lemon soup", 31.99)
+	myBill.addItem("Egusi soup", 31.99)
+	myBill.addItem("Atama soup", 31.99)
+
+
+	fmt.Println(myBill.format())
 
 }
